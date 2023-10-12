@@ -35,12 +35,12 @@ public static class SwaggerConfig
             // Set Description Swagger
             c.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "Wedding Service API",
+                Title = "API",
                 Version = "v1",
-                Description = "WSS API Endpoints",
+                Description = "API Endpoints",
                 Contact = new OpenApiContact
                 {
-                    Name = "WSS Dev"
+                    Name = "Dev"
                 }
             });
 
@@ -53,7 +53,7 @@ public static class SwaggerConfig
             // c.SchemaFilter<EnumSchemaFilter>();
 
             // Set Authorize box to swagger
-            var jwtSecuriyScheme = new OpenApiSecurityScheme
+            var jwtSecurityScheme = new OpenApiSecurityScheme
             {
                 Scheme = "bearer",
                 BearerFormat = "JWT",
@@ -68,10 +68,10 @@ public static class SwaggerConfig
                 }
             };
 
-            c.AddSecurityDefinition(jwtSecuriyScheme.Reference.Id, jwtSecuriyScheme);
+            c.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
             c.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
-                { jwtSecuriyScheme, Array.Empty<string>() }
+                { jwtSecurityScheme, Array.Empty<string>() }
             });
         });
         services.AddSwaggerGenNewtonsoftSupport();
