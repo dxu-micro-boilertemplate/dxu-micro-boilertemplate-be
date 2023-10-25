@@ -35,10 +35,8 @@
     <ItemGroup>
         <Folder Include="Application\Commands\" />
         <Folder Include="Application\Models\Request\" />
-        <Folder Include="Application\Models\ViewModels\" />
-        <Folder Include="Application\Queries\" />
-        <Folder Include="Controllers\" />
         <Folder Include="Data\Models\"/>
+        <Folder Include="Data\Repositories\Role\" />
         <Folder Include="Infrastructure\Authorization\"/>
         <Folder Include="Infrastructure\Middleware\" />
         <Folder Include="Infrastructure\Services\" />

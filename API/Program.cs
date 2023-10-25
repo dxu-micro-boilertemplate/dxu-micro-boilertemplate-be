@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using API.Infrastructure;
+using H.Core.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseUrls("http://*;https://*");
@@ -42,6 +43,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.G
 builder.Services.RegisterSwaggerModule();
 builder.Services.RegisterServiceModule();
 builder.Services.RegisterDataRepositories();
+builder.Services.RegisterCoreData();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -57,6 +59,8 @@ app.UseCors(cor => cor
 
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers().RequireAuthorization();
 

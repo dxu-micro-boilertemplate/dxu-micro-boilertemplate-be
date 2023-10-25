@@ -1,3 +1,5 @@
+using API.Application.Models.ViewModels;
+using API.Data.Models;
 using AutoMapper;
 
 namespace API.Application.DataMapping;
@@ -8,10 +10,11 @@ public class MappingProfile : Profile
     /// <inheritdoc />
     public MappingProfile()
     {
-        
+        UserProfile();
     }
 
-    private void xProfile()
+    private void UserProfile()
     {
+        this.CreateMap<User, UserResponse>().ReverseMap();
     }
 }

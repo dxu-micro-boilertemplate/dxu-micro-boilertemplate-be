@@ -6,7 +6,7 @@ namespace API.Data.Repositories;
 /// <summary>
 /// 
 /// </summary>
-public interface IUserRepo 
+public interface IUserRepo
 {
     /// <summary>
     /// 
@@ -16,7 +16,7 @@ public interface IUserRepo
     /// <returns></returns>
     IQueryable<User> GetUsers(Expression<Func<User, bool>>? predicate = null,
         Expression<Func<User, object>>[]? includeProperties = null);
-
+    
     /// <summary>
     /// 
     /// </summary>

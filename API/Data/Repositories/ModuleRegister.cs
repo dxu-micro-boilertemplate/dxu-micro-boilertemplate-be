@@ -8,6 +8,6 @@ public static class ModuleRegister
     /// <param name="services"></param>
     public static void RegisterDataRepositories(this IServiceCollection services)
     {
-        services.AddIdentity<IUserRepo, UserRepo>();
+        services.AddScoped<IUserRepo, UserRepo>();
     }
 }
