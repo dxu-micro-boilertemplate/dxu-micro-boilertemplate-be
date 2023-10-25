@@ -37,8 +37,10 @@ public class DbContextFactory : IDbContextFactory, IDisposable
 
         if (!CachedContexts.TryGetValue(contextType, out var uowInstance))
         {
+            // string? connectionString =
+            //     Configuration.GetConnectionString($"{contextType.Name.Replace("Context", string.Empty)}");
             string? connectionString =
-                Configuration.GetConnectionString($"{contextType.Name.Replace("Context", string.Empty)}");
+                "server=133.167.95.70;database=dxudev;user=tms_dev1;password=TmsDev1@2022@;convert zero datetime=True";
             DbContextOptionsBuilder optionsBuilder = ConfigureSqlServer<TContext>(connectionString);
             TContext? contextInstance = (TContext?)Activator.CreateInstance(typeof(TContext), optionsBuilder.Options);
             Type uotType = typeof(UnitOfWork<>);
@@ -136,7 +138,7 @@ public class DbContextFactory : IDbContextFactory, IDisposable
         where TContext : DbContext
     {
         DbContextOptionsBuilder<TContext> optionsBuilder = new DbContextOptionsBuilder<TContext>();
-        optionsBuilder.UseSqlServer(connectionString);
+        optionsBuilder.UseMySQL(connectionString);
         return optionsBuilder;
     }
 }
